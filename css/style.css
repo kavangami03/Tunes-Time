@@ -1278,3 +1278,133 @@ main {
   border-radius: 50%;
   margin: 0 auto;
 }
+.video-main {
+  position: relative;
+  padding: 120px 0 240px;
+}
+.video-content {
+  height: 484px;
+  max-width: 846px;
+  background-color: var(--clr-navy-primary);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.video-main::before {
+  content: "";
+  height: 554px;
+  width: 100%;
+  background-color: var(--clr-bg-soft-blue);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.video-main::after {
+  content: "";
+  height: 242px;
+  width: 100%;
+  background: url(../images/video-bg.svg);
+  position: absolute;
+  bottom: 52px;
+  background-repeat: no-repeat;
+  left: 0;
+}
+
+/* Form Section Styles */
+.form-main {
+  padding: 120px 0;
+}
+
+.form-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.form-header span {
+  background-color: #1c3f951a;
+  border: 1px solid #1c3f954d;
+  color: var(--clr-navy-primary);
+  padding: 8px 24px;
+  border-radius: 100px;
+  font-family: var(--ff-body);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.form-header::after {
+  content: "";
+  flex: 1;
+  height: 1.5px;
+  background-color: var(--clr-navy-primary);
+  opacity: 0.2;
+}
+
+.form-main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.form-content h2 {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-h1);
+  color: var(--clr-navy-primary);
+  margin-bottom: 40px;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.form-content p {
+  font-family: var(--ff-body);
+  font-size: var(--ff-body);
+  color: var(--clr-text-slate);
+  margin-bottom: 40px;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+.form-content h3 {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-h2);
+  color: var(--clr-red-accent);
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.form-content ol {
+  list-style: none;
+  counter-reset: item;
+  padding: 0;
+}
+
+.form-content ol li {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+  font-family: var(--ff-body);
+  font-size: var(--fs-body);
+  color: #364153;
+  font-weight: 500;
+}
+
+.form-content ol li::before {
+  content: counter(item);
+  counter-increment: item;
+  background-color: var(--clr-red-accent);
+  color: white;
+  min-width: 24px;
+  max-width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: var(--fs-sm);
+  flex-shrink: 0;
+}
