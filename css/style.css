@@ -1572,6 +1572,7 @@ main {
 }
 .timeline-header {
   text-align: center;
+  padding-bottom: 400px;
 }
 .timeline-header span {
   border-radius: 30px;
@@ -1596,4 +1597,67 @@ main {
   margin-bottom: 40px;
   line-height: 1;
   letter-spacing: -1px;
+}
+
+.timeline-images ul {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  margin: 40px 0 0 0;
+  position: relative;
+}
+
+/* Background line connecting all icons horizontally */
+.timeline-images ul::before {
+  content: "";
+  position: absolute;
+  top: 15px; /* Exactly vertical center of the 30px SVGs */
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #6c85bd;
+  z-index: 1; /* Drop it behind the LIs */
+}
+
+.timeline-images ul li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #6c85bd;
+  position: relative;
+  z-index: 2; /* Keep SVGs and text on top */
+  gap: 15px; /* Space between icon and year text */
+}
+
+/* The wrapper creates the gap in the line visually */
+.timeline-images ul li .icon-wrap {
+  background-color: var(--clr-navy-primary); /* Masks the line behind it! */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline-images ul li .year {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-h5);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.timeline-images ul li .active {
+  color: var(--clr-gold-highlight);
+}
+
+.timeline-images ul li .active-text {
+  color: var(--clr-gold-highlight);
+}
+
+.timeline-images ul li svg {
+  transition: color 0.3s ease;
+  flex-shrink: 0;
+}
+.timeline-images ul li:first-of-type .icon-wrap{
+  padding-left:20px ;
 }
