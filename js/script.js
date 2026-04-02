@@ -122,6 +122,26 @@ tl.from(".hero-sub-content h2", {
     //         scrollTimeout = true;
     //     }
     // });
+    // =============================================
+    // TESTIMONIALS SWIPER
+    // =============================================
+    const testimonialsSwiper = new Swiper('.testimonials-swiper', {
+        effect: 'cards',
+        grabCursor: true,
+        rewind: true,
+        cardsEffect: {
+            perSlideRotate: 3,
+            perSlideOffset: 7,
+            rotate: true,
+            slideShadows: false,
+        },
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
+    });
+
+  
 
 });
  
