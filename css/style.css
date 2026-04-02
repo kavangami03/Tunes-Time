@@ -116,6 +116,7 @@ h4 {
   font-family: var(--ff-heading);
   color: var(--clr-text-main);
   font-weight: 400;
+  margin: 0;
 }
 a.button-primary {
   background-color: var(--clr-navy-primary);
@@ -756,4 +757,139 @@ main {
 }
 .school-result-card:nth-child(4)::after {
   background: url(../images/result-2.svg);
+}
+/* Simple & Effective Section */
+.simple-effective-main {
+  padding: 90px 0 154px 0;
+  background-color: var(--clr-bg-neutral);
+}
+.simple-effective-header,
+.inclusive-learning-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.simple-effective-header span,
+.inclusive-learning-header span {
+  font-family: var(--ff-body);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  background-color: #1c3f951a;
+  color: var(--clr-navy-primary);
+  border: 1px solid #1c3f954d;
+  padding: 9px 17px;
+  border-radius: 50px;
+}
+.simple-effective-header h2,
+.inclusive-learning-header h2 {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-h1);
+  color: var(--clr-navy-primary);
+  margin-top: 10px;
+}
+.simple-effective-content {
+  position: relative;
+}
+.simple-effective-card {
+  max-width: 882px;
+  background-color: var(--clr-bg-soft-blue);
+  border-radius: 30px;
+  margin: 0 auto;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.simple-effective-card-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: var(--clr-red-accent);
+}
+.simple-effective-card-header h3 {
+  color: var(--clr-bg-white);
+  font-family: var(--ff-heading);
+  font-size: var(--fs-h2);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.352px;
+}
+.simple-effective-command-content {
+  background-color: var(--clr-bg-white);
+  padding: 20px;
+  border-radius: 10px;
+}
+.simple-effective-command-content > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+.simple-effective-command-content > div p {
+  color: var(--clr-navy-primary);
+  text-align: center;
+  font-family: var(--ff-body);
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  line-height: 17px; /* 100% */
+}
+.simple-effective-command-content h3 {
+  color: var(--clr-navy-primary);
+  text-align: center;
+  font-family: var(--ff-heading);
+  font-size: var(--fs-h2);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 48px; /* 150% */
+  letter-spacing: 0.352px;
+}
+.simple-effective-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.simple-effective-footer {
+  background-color: var(--clr-navy-primary);
+  padding: 20px;
+  border-radius: 10px;
+}
+.simple-effective-footer p {
+  color: #fff;
+  text-align: center;
+  font-family: var(--ff-body);
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  line-height: 160%; /* 32px */
+}
+.simple-effective-card::after {
+  content: "";
+  position: absolute;
+  bottom: -150px;
+  left: 50%;
+  background: url(../images/simple-effective-footer.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  width: 640px;
+  height: 128px;
+  transform: translate(-50%, 50%);
+}
+.simple-effective-bottom-images img:first-child {
+  position: absolute;
+  bottom: -150px;
+  left: 0;
+  width: 170px;
+  height: 220px;
+}
+.simple-effective-bottom-images img:last-child {
+  position: absolute;
+  bottom: -150px;
+  right: 0;
+  width: 170px;
+  height: 220px;
+}
+.inclusive-learning-main {
+  padding-top: 150px;
 }
