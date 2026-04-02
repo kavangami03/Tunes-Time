@@ -1425,7 +1425,7 @@ main {
   transform: translate(-50%, -50%);
   font-family: var(--ff-heading);
   font-size: 190px;
-  color: #6C85BD;
+  color: #6c85bd;
   white-space: nowrap;
   pointer-events: none;
   z-index: 0;
@@ -1441,9 +1441,9 @@ main {
 }
 
 .circle-1 {
-width: 260px;
-height: 260px;
-  border: 30px solid #6C85BD;
+  width: 260px;
+  height: 260px;
+  border: 30px solid #6c85bd;
   top: 10%;
   right: -10%;
 }
@@ -1451,7 +1451,7 @@ height: 260px;
 .circle-2 {
   width: 150px;
   height: 150px;
-  border: 30px solid #6C85BD;
+  border: 18px solid #6c85bd;
   bottom: 20px;
   left: -80px;
 }
@@ -1554,4 +1554,18 @@ height: 260px;
   color: var(--clr-red-accent);
   text-align: center;
   margin-top: 8px;
+}
+.testimonials-main::before {
+  content: "";
+  position: absolute;
+  top: 80%;
+  left: 70%;
+  width: 40px;
+  height: 40px;
+  background: url(../images/star-vector.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  z-index: 0;
+  transform: translate(-50%, -50%);
 }
