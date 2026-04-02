@@ -1,0 +1,24 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Modern Rounded Square Background -->
+  <rect width="512" height="512" rx="120" fill="#1b2a4a" />
+  
+  <!-- Music Note Stem - Left -->
+  <path d="M 180,160 L 180,360 A 60,45 0 1,0 120,405 A 60,45 0 0,0 180,360 Z" fill="#FFD700" />
+  <!-- Music Note Stem - Right -->
+  <path d="M 380,120 L 380,320 A 60,45 0 1,0 320,365 A 60,45 0 0,0 380,320 Z" fill="#FFD700" />
+  
+  <!-- Music Note Beam -->
+  <path d="M 180,160 L 380,120 V 160 L 180,200 Z" fill="#FFD700" />
+  <!-- Secondary Beam for 16th note style (optional, adds detail) -->
+  <path d="M 180,220 L 380,180 V 220 L 180,260 Z" fill="#FFD700" />
+
+  <!-- Multiplication Signs in Notes -->
+  <g stroke="#1b2a4a" stroke-width="14" stroke-linecap="round">
+    <!-- Left Note X -->
+    <path d="M 105,345 L 135,375" />
+    <path d="M 135,345 L 105,375" />
+    <!-- Right Note X -->
+    <path d="M 305,305 L 335,335" />
+    <path d="M 335,305 L 305,335" />
+  </g>
+</svg>
