@@ -191,6 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
             delay: 4000,
             disableOnInteraction: false,
         },
+        watchOverflow: true,
         navigation: {
             nextEl: '.timeline-next',
             prevEl: '.timeline-prev',

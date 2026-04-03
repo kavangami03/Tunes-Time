@@ -51,8 +51,8 @@
    ============================================================= */
 @media (max-width: 1500px) {
   .time-line-cards.active h2 {
-    font-size: 280px;
-    line-height: 280px;
+    font-size: 230px;
+    line-height: 230px;
   }
   .time-line-cards h2 {
     font-size: 160px;
@@ -68,6 +68,9 @@
     height: 260px;
     width: 260px;
     padding: 10px;
+  }
+  .timeline-years {
+    min-height: 342px;
   }
 }
 

@@ -1305,7 +1305,22 @@ main {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+  transition: transform 0.8s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.video-play-btn-wrap::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(28, 63, 149, 0.2) 0%,
+    transparent 100%
+  );
+  z-index: 1;
 }
 
 .video-play-btn-wrap {
@@ -1352,6 +1367,34 @@ main {
   color: var(--clr-bg-white);
   transform: translate(-50%, -50%) scale(1.1);
   animation: none;
+}
+
+.video-play-btn-wrap::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  transition: none;
+  z-index: 2;
+}
+
+.video-play-btn-wrap:hover::after {
+  animation: shine 0.75s;
+}
+
+@keyframes shine {
+  100% {
+    left: 125%;
+  }
 }
 
 @keyframes pulse-button {
@@ -1812,6 +1855,7 @@ main {
   right: 20%;
   transform: translateY(-50%);
   z-index: 10;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 .timeline-prev {
   cursor: pointer;
@@ -1827,8 +1871,17 @@ main {
   z-index: 10;
   left: 20%;
   transform: translateY(-50%);
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 .timeline-prev:focus-visible,
 .timeline-next:focus-visible {
   outline: none;
+}
+
+/* Hide navigation buttons at beginning and end */
+.timeline-next.swiper-button-disabled,
+.timeline-prev.swiper-button-disabled {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
 }
