@@ -1150,7 +1150,7 @@
   .form-main {
     padding: 40px 0;
   }
-    .featured-on {
+  .featured-on {
     width: 100%;
   }
   .featured-on img {
@@ -1159,7 +1159,7 @@
 }
 @media (max-width: 480px) {
   .hero-main::before {
-    top: -30px;
+    top: -76px;
   }
 }
 /* =============================================================
@@ -1225,7 +1225,6 @@
   .simple-effective-bottom-images {
     display: none;
   }
-
 }
 
 /* =============================================================
