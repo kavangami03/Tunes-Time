@@ -774,12 +774,9 @@
   }
 
   /* Problem */
-  .problem-card-grid {
-    grid-template-columns: 1fr;
-  }
   .problem-img {
     order: -1;
-    align-items: center;
+    align-items: end;
   }
   .problem-box-blue svg,
   .problem-box-yellow svg {
@@ -787,13 +784,14 @@
     height: 150px;
   }
   .solution-right-grid {
-    align-items: center;
+    align-items: end;
   }
   .solution-right-grid > div:first-child img {
     max-width: 80px;
   }
   .solution-right-grid > img {
     max-width: 100%;
+    width: 100%;
   }
 
   /* Trusted Impact */
@@ -987,7 +985,7 @@
     padding: 20px;
   }
   .cta-wrap {
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: flex-start;
   }
 
@@ -1154,7 +1152,7 @@
     width: 100%;
   }
   .featured-on img {
-    width: 100%;
+    width: 50%;
   }
   .simple-effective-command-content > div {
     flex-direction: column;
@@ -1163,6 +1161,37 @@
   .simple-effective-header,
   .inclusive-learning-header {
     margin-bottom: 30px;
+  }
+  .problem-box-red svg {
+    width: 100px;
+  }
+  .main-problem-section .problem-grid:last-child .problem-box-yellow::after {
+    width: 90px;
+    height: 40px;
+    bottom: -60px;
+  }
+  .main-problem-section .problem-grid:last-child .problem-box-yellow {
+    margin-bottom: 0px;
+  }
+  .music-card {
+    width: 68px;
+    height: 68px;
+  }
+  .problem-img img {
+    width: 80px;
+  }
+  .problem-box-blue::after {
+    bottom: -136px;
+  }
+  .hero-main {
+    background-color: var(--clr-bg-soft-blue);
+  }
+  main {
+    padding-top: 80px;
+  }
+  .hero-main::before {
+    height: 650px;
+    display: none;
   }
 }
 @media (max-width: 480px) {
