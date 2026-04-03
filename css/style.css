@@ -18,6 +18,7 @@
   --clr-bg-white: #ffffff;
   --clr-medium-blue: #5c77b5;
   --clr-header-link: #504d43;
+  --clr-grey: #6c85bd;
 
   /* --- Typography Families --- */
   --ff-heading: "peachy-keen-jf", sans-serif;
@@ -1428,7 +1429,7 @@ main {
   transform: translate(-50%, -50%);
   font-family: var(--ff-heading);
   font-size: 190px;
-  color: #6c85bd;
+  color: var(--clr-grey);
   white-space: nowrap;
   pointer-events: none;
   z-index: 0;
@@ -1446,7 +1447,7 @@ main {
 .circle-1 {
   width: 260px;
   height: 260px;
-  border: 30px solid #6c85bd;
+  border: 30px solid var(--clr-grey);
   top: 10%;
   right: -8%;
 }
@@ -1454,7 +1455,7 @@ main {
 .circle-2 {
   width: 150px;
   height: 150px;
-  border: 18px solid #6c85bd;
+  border: 18px solid var(--clr-grey);
   bottom: 20px;
   left: -80px;
 }
@@ -1572,7 +1573,6 @@ main {
 }
 .timeline-header {
   text-align: center;
-  padding-bottom: 400px;
 }
 .timeline-header span {
   border-radius: 30px;
@@ -1614,10 +1614,10 @@ main {
   content: "";
   position: absolute;
   top: 15px; /* Exactly vertical center of the 30px SVGs */
-  left: 0;
-  right: 0;
+  left: 15px;
+  right: 15px;
   height: 2px;
-  background-color: #6c85bd;
+  background-color: var(--clr-grey);
   z-index: 1; /* Drop it behind the LIs */
 }
 
@@ -1625,7 +1625,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #6c85bd;
+  color: var(--clr-grey);
   position: relative;
   z-index: 2; /* Keep SVGs and text on top */
   gap: 15px; /* Space between icon and year text */
@@ -1658,6 +1658,80 @@ main {
   transition: color 0.3s ease;
   flex-shrink: 0;
 }
-.timeline-images ul li:first-of-type .icon-wrap{
-  padding-left:20px ;
+.time-line-cards {
+  position: relative;
+}
+.time-line-cards.active h2 {
+  color: var(--clr-grey);
+  text-align: center;
+  font-family: var(--ff-heading);
+  font-size: 350px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 350px; /* 100% */
+}
+.time-line-detail {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.time-line-detail h3 {
+  color: var(--clr-bg-white);
+  text-align: center;
+  font-family: var(--ff-heading);
+  font-size: var(--fs-h3);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
+  letter-spacing: 0.352px;
+}
+.time-line-detail {
+  display: none;
+}
+.time-line-cards.active .time-line-detail {
+  display: block;
+}
+.time-line-cards h2 {
+  color: var(--clr-grey);
+  text-align: center;
+  font-family: var(--ff-heading);
+  font-size: 200px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 200px; /* 100% */
+}
+.timeline-years {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  align-items: center;
+  gap: 200px;
+  position: relative;
+}
+.timeline-years::before {
+  content: "";
+  position: absolute;
+  background: url(../images/next.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  width: 166px;
+  height: 60px;
+  top: 50%;
+  right: 20%;
+  transform: translateY(-50%);
+}
+.timeline-years::after {
+  content: "";
+  position: absolute;
+  background: url(../images/prev.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  width: 166px;
+  height: 60px;
+  top: 50%;
+  left: 20%;
+  transform: translateY(-50%);
 }
