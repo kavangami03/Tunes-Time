@@ -274,8 +274,8 @@
     max-width: 600px;
     margin: 0 auto;
   }
-  .footer-grid{
-    grid-template-columns: repeat(3,1fr);
+  .footer-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 /* =============================================================
@@ -936,7 +936,7 @@
     gap: 30px;
   }
   .main-footer {
-    padding: 40px 0 20px;
+    padding: 40px 0 40px;
   }
   .problem-main-img > img {
     max-width: 100%;
@@ -945,6 +945,9 @@
     grid-template-columns: 1fr 2fr;
     margin: 0 auto;
     max-width: 100%;
+  }
+  .main-footer hr {
+    margin: 20px 0;
   }
 }
 /* =============================================================
