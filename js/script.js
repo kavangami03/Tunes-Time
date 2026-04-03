@@ -145,9 +145,13 @@ tl.from(".hero-sub-content h2", {
     // TIMELINE SWIPER
     // =============================================
     const timelineSwiper = new Swiper('.timeline-swiper', {
-        slidesPerView: "auto",
+        slidesPerView: 2.2,
         centeredSlides: true,
-        spaceBetween: 60,
+        spaceBetween: 0,
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+        },
         navigation: {
             nextEl: '.timeline-next',
             prevEl: '.timeline-prev',
