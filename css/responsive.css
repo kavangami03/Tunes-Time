@@ -936,6 +936,9 @@
   .main-footer {
     padding: 40px 0 20px;
   }
+  .problem-main-img > img {
+    max-width: 100%;
+  }
 }
 /* =============================================================
    576px - Mobile
