@@ -77,9 +77,6 @@
   :root {
     --container: 1180px;
   }
-  .tt-container {
-    padding: 0 20px;
-  }
   .school-result-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -1104,7 +1101,7 @@
 
   /* Inclusive Learning */
   .inclusive-learning-main {
-    padding: 60px 0 150px;
+    padding: 60px 0 90px;
   }
   .inclusive-learning-header {
     margin-bottom: 30px;
@@ -1112,7 +1109,7 @@
 
   /* Meet the Creator */
   .meet-the-creator-main {
-    padding: 130px 0 40px;
+    padding: 90px 0 40px;
   }
   .meet-the-creator-header {
     margin-bottom: 30px;
@@ -1159,10 +1156,25 @@
   .featured-on img {
     width: 100%;
   }
+  .simple-effective-command-content > div {
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  .simple-effective-header,
+  .inclusive-learning-header {
+    margin-bottom: 30px;
+  }
 }
 @media (max-width: 480px) {
   .hero-main::before {
     top: -76px;
+  }
+  .hero-sub-content h2:nth-child(1),
+  .hero-sub-content h2:nth-child(2) {
+    padding: 6px 14px;
+  }
+  .hero-sub-content h2:nth-child(3) {
+    padding: 6px 14px;
   }
 }
 /* =============================================================
@@ -1193,7 +1205,12 @@
   .hero-buttons {
     gap: 12px;
   }
-
+  .school-result-card::after {
+    top: 0;
+  }
+  .special-grid .special-row:first-of-type {
+    padding-top: 40px;
+  }
   /* School Results */
   .school-result-grid {
     grid-template-columns: 1fr;
@@ -1215,13 +1232,10 @@
     font-size: 50px;
     line-height: 50px;
   }
-  .timeline-years {
-    min-height: 170px;
-  }
   .timeline-next,
   .timeline-prev {
     width: 50px;
-    height: 24px;
+    height: 16px;
   }
 
   /* Simple & Effective */
@@ -1240,13 +1254,6 @@
   }
 
   .hero-content h1 {
-    padding: 6px 14px;
-  }
-  .hero-sub-content h2:nth-child(1),
-  .hero-sub-content h2:nth-child(2) {
-    padding: 6px 14px;
-  }
-  .hero-sub-content h2:nth-child(3) {
     padding: 6px 14px;
   }
 
