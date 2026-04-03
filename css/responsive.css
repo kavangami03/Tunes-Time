@@ -49,7 +49,7 @@
 /* =============================================================
    1400px - Timeline Slider Only
    ============================================================= */
-@media (max-width: 1400px) {
+@media (max-width: 1500px) {
   .time-line-cards.active h2 {
     font-size: 280px;
     line-height: 280px;
