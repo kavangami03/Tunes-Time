@@ -1,7 +1,7 @@
 /* Script JS */
 document.addEventListener('DOMContentLoaded', () => {
 
-     // --- Lenis Smooth Scroll Initialization ---
+    // --- Lenis Smooth Scroll Initialization ---
     const lenis = new Lenis({
         duration: 1.2,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -17,19 +17,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     gsap.ticker.lagSmoothing(0);
 
-    // --- GSAP Mobile Menu Animation ---
+    // --- GSAP Mobile Menu Animation (Out of the box!) ---
     const ttNavbar = document.getElementById('ttNavbar');
     const navLinks = document.querySelectorAll('.navbar-nav .nav-item');
-    
+
     ttNavbar.addEventListener('show.bs.collapse', () => {
-        gsap.fromTo(ttNavbar, 
-            { opacity: 0, y: -20, scale: 0.95 }, 
-            { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.7)" }
+        // Elastic scale-in from top right corner
+        gsap.fromTo(ttNavbar,
+            { opacity: 0, y: -30, scale: 0.85, transformOrigin: 'top right' },
+            { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: "elastic.out(1, 0.7)" }
         );
-        
-        gsap.fromTo(navLinks, 
-            { opacity: 0, x: -10 }, 
-            { opacity: 1, x: 0, duration: 0.4, stagger: 0.08, delay: 0.1, ease: "power2.out" }
+
+        // 3D flip-in stagger for links
+        gsap.fromTo(navLinks,
+            { opacity: 0, x: -30, y: 15, rotationX: -60 },
+            { opacity: 1, x: 0, y: 0, rotationX: 0, duration: 0.7, stagger: 0.06, delay: 0.1, ease: "back.out(1.5)", clearProps: "all" }
+        );
+    });
+
+    ttNavbar.addEventListener('hide.bs.collapse', () => {
+        // Smooth slide out when closing
+        gsap.to(ttNavbar,
+            { opacity: 0, y: -15, scale: 0.95, duration: 0.3, ease: "power2.in" }
+        );
+        // Stagger the links out backwards
+        gsap.to(navLinks,
+            { opacity: 0, x: 20, duration: 0.2, stagger: -0.04, ease: "power2.in" }
         );
     });
 
@@ -54,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-//     // --- Header Scroll Handlers ---
+    //     // --- Header Scroll Handlers ---
 
     // =============================================
     // HERO SVG - DANCING ARM ANIMATIONS (GSAP)
@@ -65,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // coordinate space so fills match the outline.
     // =============================================
 
-    const leftArm  = document.getElementById('hero-left-arm');
+    const leftArm = document.getElementById('hero-left-arm');
     const rightArm = document.getElementById('hero-right-arm');
 
     if (leftArm && rightArm) {
@@ -101,28 +114,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
- const tl = gsap.timeline();
+    const tl = gsap.timeline();
 
-// Step 1: Bottom words drop first
-tl.from(".hero-sub-content h2", {
-  y: -800,
-//   opacity: 0,
-  rotation: -8,
-  scale: 0.85,
-  duration: 1.8,
-  stagger: 0.3,
-  ease: "bounce.out"
-})
+    // Step 1: Bottom words drop first
+    tl.from(".hero-sub-content h2", {
+        y: -800,
+        //   opacity: 0,
+        rotation: -8,
+        scale: 0.85,
+        duration: 1.8,
+        stagger: 0.3,
+        ease: "bounce.out"
+    })
 
-// Step 2: Then Movement drops
-.from(".hero-content h1", {
-  y: -800,
-//   opacity: 0,
-  rotation: -8,
-  scale: 0.85,
-  duration: 1.8,
-  ease: "bounce.out"
-}, "-=1.4"); // slight overlap for smooth feel
+        // Step 2: Then Movement drops
+        .from(".hero-content h1", {
+            y: -800,
+            //   opacity: 0,
+            rotation: -8,
+            scale: 0.85,
+            duration: 1.8,
+            ease: "bounce.out"
+        }, "-=1.4"); // slight overlap for smooth feel
 
     // =============================================
     // HEADER SCROLL HANDLER
@@ -166,9 +179,14 @@ tl.from(".hero-sub-content h2", {
     // TIMELINE SWIPER
     // =============================================
     const timelineSwiper = new Swiper('.timeline-swiper', {
-        slidesPerView: 2.2,
+        slidesPerView: 1, /* Default for mobile (0px and up) */
         centeredSlides: true,
         spaceBetween: 0,
+        breakpoints: {
+            768: { /* Tablets and Desktop (768px and up) */
+                slidesPerView: 2.2,
+            }
+        },
         autoplay: {
             delay: 4000,
             disableOnInteraction: false,
@@ -228,4 +246,3 @@ tl.from(".hero-sub-content h2", {
     }
 
 });
- 
