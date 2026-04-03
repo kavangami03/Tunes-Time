@@ -1660,6 +1660,8 @@ main {
 }
 .time-line-cards {
   position: relative;
+  width: auto;
+  transition: all 0.3s ease;
 }
 .time-line-cards.active h2 {
   color: var(--clr-grey);
@@ -1700,16 +1702,20 @@ main {
   font-style: normal;
   font-weight: 400;
   line-height: 200px; /* 100% */
+  transition:
+    font-size 0.3s ease,
+    line-height 0.3s ease;
 }
 .timeline-years {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow: hidden;
-  align-items: center;
-  gap: 200px;
   position: relative;
+  padding: 50px 0;
 }
-.timeline-years::before {
+.timeline-years .swiper-wrapper {
+  align-items: center;
+  gap: 100px;
+}
+.timeline-next {
+  cursor: pointer;
   content: "";
   position: absolute;
   background: url(../images/next.svg);
@@ -1721,8 +1727,10 @@ main {
   top: 50%;
   right: 20%;
   transform: translateY(-50%);
+  z-index: 10;
 }
-.timeline-years::after {
+.timeline-prev {
+  cursor: pointer;
   content: "";
   position: absolute;
   background: url(../images/prev.svg);
@@ -1732,6 +1740,7 @@ main {
   width: 166px;
   height: 60px;
   top: 50%;
+  z-index: 10;
   left: 20%;
   transform: translateY(-50%);
 }
