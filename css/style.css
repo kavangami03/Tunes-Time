@@ -56,6 +56,11 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+/* Scroll offset for fixed header on anchor navigation */
+section[id] {
+  scroll-margin-top: 20px;
+}
+
 body {
   width: 100%;
   background-color: var(--clr-bg-white);
@@ -1682,7 +1687,7 @@ main {
   transform: translate(-50%, -50%);
   text-align: center;
 }
-.time-line-detail img{
+.time-line-detail img {
   margin-bottom: 10px;
 }
 .time-line-detail h3 {

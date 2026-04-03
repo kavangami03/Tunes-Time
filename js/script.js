@@ -33,6 +33,27 @@ document.addEventListener('DOMContentLoaded', () => {
         );
     });
 
+    // --- Smooth Scroll Navigation for Anchor Links ---
+    const headerNavLinks = document.querySelectorAll('.navbar-nav .nav-link[href^="#"]');
+    const bsCollapse = bootstrap.Collapse.getOrCreateInstance(ttNavbar, { toggle: false });
+
+    headerNavLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const targetId = link.getAttribute('href');
+            const targetEl = document.querySelector(targetId);
+            if (targetEl) {
+                e.preventDefault();
+                const headerHeight = document.querySelector('.main-header')?.offsetHeight || 80;
+                lenis.scrollTo(targetEl, { offset: -headerHeight - 10 });
+
+                // Close mobile nav if open
+                if (ttNavbar.classList.contains('show')) {
+                    bsCollapse.hide();
+                }
+            }
+        });
+    });
+
 //     // --- Header Scroll Handlers ---
 
     // =============================================
