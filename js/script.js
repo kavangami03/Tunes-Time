@@ -338,22 +338,38 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // --- High Impact Headers (3D Flip In) ---
-    creativeReveal(document.querySelectorAll('section:not(.hero-main):not(.meet-the-creator-main) h2, section:not(.hero-main):not(.meet-the-creator-main) h3, .section-header span, .form-header span, .problem-card-header span, .inclusive-learning-header span, .school-result-header span, .trusted-impact-header span, .timeline-header span'), {
-        y: 150, rotationX: -60, duration: 2.2, stagger: 0.3
+    const isMobile = window.innerWidth < 768;
+    creativeReveal(document.querySelectorAll('section:not(.hero-main):not(.meet-the-creator-main) h2, section:not(.hero-main):not(.meet-the-creator-main) h3, .section-header span, .form-header span, .problem-card-header span, .inclusive-learning-header span, .school-result-header span, .trusted-impact-header span, .timeline-header span, .footer-grid h2, .footer-grid h3'), { 
+        y: 150, 
+        rotationX: -60, 
+        duration: isMobile ? 1.4 : 2.2, 
+        stagger: isMobile ? 0.15 : 0.3,
+        start: isMobile ? "top 90%" : "top 75%"
     });
 
-    // --- Interactive 3D Card Deal (Trusted, Problem, Results, Inclusive, Schools, Forms & Problem Grid) ---
-    creativeReveal(document.querySelectorAll('.trusted-impact-card, .problem-card, .simple-effective-card, .school-result-card, .inclusive-cards, .main-form, .special-row, .problem-card-grid'), {
-        y: 100, rotationY: 45, rotationX: 10, scale: 0.7, duration: 2, stagger: 0.25, ease: "back.out(1.5)"
+    // --- Interactive 3D Card Deal (Trusted, Problem, Results, Inclusive, Schools, Forms, Problem Grid & Footer) ---
+    creativeReveal(document.querySelectorAll('.trusted-impact-card, .problem-card, .simple-effective-card, .school-result-card, .inclusive-cards, .main-form, .special-row, .problem-card-grid, .footer-grid > div'), { 
+        y: 100, 
+        rotationY: 45, 
+        rotationX: 10, 
+        scale: 0.7, 
+        duration: isMobile ? 1.2 : 2.0, 
+        stagger: isMobile ? 0.12 : 0.25, 
+        ease: "back.out(1.5)",
+        start: isMobile ? "top 95%" : "top 80%"
     });
 
     // --- High Impact Large Cards (Inclusive Main, Forms & CTA Wraps) ---
     creativeReveal(document.querySelectorAll('.inclusive-learning-main-card, .main-form, .cta-wrap'), {
-        y: 80, scale: 0.92, duration: 2, ease: "expo.out"
+        y: 80, 
+        scale: 0.92, 
+        duration: isMobile ? 1.2 : 2, 
+        ease: "expo.out",
+        start: isMobile ? "top 95%" : "top 80%"
     });
 
     // --- Parallax Image Reveal (Masking effect) ---
-    const bigImages = document.querySelectorAll('.simple-effective-img img, .inclusive-learning-img img, .inclusive-footer-content img, .simple-effective-bottom-images img');
+    const bigImages = document.querySelectorAll('.simple-effective-img img, .inclusive-learning-img img, .simple-effective-bottom-images img');
     bigImages.forEach(img => {
         gsap.from(img, {
             scale: 1.2,
@@ -371,31 +387,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Special Testimonial Section Sequence ---
     if (document.querySelector('.testimonials-main')) {
+        // Large Background Text Parallax (Disabled on mobile for performance)
+        if (!isMobile) {
+            gsap.to(".testimonials-bg-text", {
+                x: -150,
+                opacity: 0.1,
+                scrollTrigger: {
+                    trigger: ".testimonials-main",
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 1.5
+                }
+            });
+        }
 
         // Decorative Circles (Elastic Reveal)
         creativeReveal(document.querySelectorAll('.testimonial-deco'), {
             scale: 0,
             rotation: 120,
-            duration: 2,
+            duration: isMobile ? 1.5 : 2,
             stagger: 0.4,
             ease: "elastic.out(1, 0.4)"
         });
 
         // Testimonial Cards (Staggered 3D Pop Up)
         creativeReveal(document.querySelectorAll('.testimonial-card'), {
-            y: 100,
+            y: 100, 
             rotationY: 40,
             rotationX: 10,
-            scale: 0.8,
-            duration: 2,
+            scale: 0.8, 
+            duration: isMobile ? 1.4 : 2, 
             stagger: 0.3,
             ease: "back.out(1.2)"
         });
     }
 
-    // --- Creative List Stagger (Inclusive, Results, Forms, Features, School, Inclusive & Creator Headers) ---
-    creativeReveal(document.querySelectorAll('.inclusive-learning-grid li, .feature-list li, .school-result-footer p, .form-content ol li, .form-content p, .form-content h3, .school-result-header p, .inclusive-learning-content p, .meet-the-creator-header span, .meet-the-creator-header h2, .meet-the-creator-content h3, .meet-the-creator-content p, .tagline h3'), {
-        x: 50, rotationY: -20, opacity: 0, duration: 1.5, stagger: 0.15
+    // --- Creative List Stagger (Inclusive, Results, Forms, Features, School, Inclusive, Creator & Footer) ---
+    creativeReveal(document.querySelectorAll('.inclusive-learning-grid li, .feature-list li, .school-result-footer p, .form-content ol li, .form-content p, .form-content h3, .school-result-header p, .inclusive-learning-content p, .meet-the-creator-header span, .meet-the-creator-header h2, .meet-the-creator-content h3, .meet-the-creator-content p, .tagline h3, .footer-grid p, .footer-grid li, .footer-bottom p'), {
+        x: 50, 
+        rotationY: -20, 
+        opacity: 0, 
+        duration: isMobile ? 1 : 1.5, 
+        stagger: isMobile ? 0.08 : 0.15,
+        start: isMobile ? "top 95%" : "top 85%"
     });
 
     // --- Popup Logos (Featured On) ---
