@@ -1,4 +1,6 @@
 /* Script JS */
+gsap.registerPlugin(ScrollTrigger);
+
 document.addEventListener('DOMContentLoaded', () => {
 
 
@@ -136,7 +138,16 @@ document.addEventListener('DOMContentLoaded', () => {
             scale: 0.85,
             duration: 1.8,
             ease: "bounce.out"
-        }, "-=1.4"); // slight overlap for smooth feel
+        }, "-=1.4") // slight overlap for smooth feel
+
+        // Step 3: Paragraph and Buttons fade in (Smooth entry)
+        .from(".hero-detail p, .hero-buttons", {
+            y: 30,
+            opacity: 0,
+            duration: 1.2,
+            stagger: 0.2,
+            ease: "power2.out"
+        }, "-=1.0");
 
     // =============================================
     // HEADER SCROLL HANDLER
@@ -246,6 +257,180 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+    // =============================================
+    // COUNTER ANIMATION (Trusted Impact)
+    // =============================================
+    function initCounters() {
+        const counters = document.querySelectorAll('.counter');
+        counters.forEach(counter => {
+            const targetValue = parseInt(counter.getAttribute('data-count'));
+            const obj = { value: 0 };
+
+            gsap.to(obj, {
+                value: targetValue,
+                duration: 2,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: counter,
+                    start: "top 90%",
+                    once: true
+                },
+                onUpdate: () => {
+                    counter.innerText = Math.ceil(obj.value).toLocaleString();
+                }
+            });
+        });
+    }
+
+    if (document.querySelector('.counter')) {
+        initCounters();
+    }
+
+    // =============================================
+    // OUT-OF-THE-BOX CREATIVE GSAP REDESIGN
+    // =============================================
+
+    // 1. Perspective Setup for 3D
+    gsap.set("section:not(.meet-the-creator-main)", { perspective: 1200 });
+
+    // 2. Creative Reveal Helper (3D Flip + Stagger)
+    const creativeReveal = (elements, options = {}) => {
+        const {
+            y = 120,
+            rotationX = -30,
+            rotationY = 0,
+            scale = 0.8,
+            duration = 1.8,
+            stagger = 0.2,
+            ease = "expo.out",
+            start = "top 80%"
+        } = options;
+
+        if (!elements || elements.length === 0) return;
+
+        const sectionsMap = new Map();
+        elements.forEach(el => {
+            const section = el.closest('section') || el.parentElement;
+            if (!sectionsMap.has(section)) sectionsMap.set(section, []);
+            sectionsMap.get(section).push(el);
+        });
+
+        sectionsMap.forEach((items, section) => {
+            gsap.from(items, {
+                y, rotationX, rotationY, scale, opacity: 0,
+                duration,
+                stagger: {
+                    each: stagger,
+                    from: "start"
+                },
+                ease,
+                scrollTrigger: {
+                    trigger: items[0], // Trigger based on the first item in the group
+                    start,
+                    toggleActions: "play none none none"
+                }
+            });
+        });
+    };
+
+    // --- High Impact Headers (3D Flip In) ---
+    creativeReveal(document.querySelectorAll('section:not(.hero-main):not(.meet-the-creator-main) h2, section:not(.hero-main):not(.meet-the-creator-main) h3, .section-header span, .form-header span, .problem-card-header span, .inclusive-learning-header span, .school-result-header span'), { 
+        y: 150, rotationX: -60, duration: 2.2, stagger: 0.3 
+    });
+
+    // --- Interactive 3D Card Deal (Trusted, Problem, Results, Inclusive, Schools & Forms) ---
+    creativeReveal(document.querySelectorAll('.trusted-impact-card, .problem-card, .simple-effective-card, .school-result-card, .inclusive-cards, .main-form, .special-row'), { 
+        y: 100, rotationY: 45, rotationX: 10, scale: 0.7, duration: 2, stagger: 0.25, ease: "back.out(1.5)" 
+    });
+
+    // --- High Impact Large Cards (Inclusive Main & Others) ---
+    creativeReveal(document.querySelectorAll('.inclusive-learning-main-card'), {
+        y: 80, scale: 0.92, duration: 2, ease: "expo.out"
+    });
+
+    // --- Parallax Image Reveal (Masking effect) ---
+    const bigImages = document.querySelectorAll('.simple-effective-img img, .inclusive-learning-img img, .inclusive-footer-content img, .simple-effective-bottom-images img');
+    bigImages.forEach(img => {
+        gsap.from(img, {
+            scale: 1.2,
+            y: 50,
+            opacity: 0.2,
+            duration: 2.5,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: img,
+                start: "top 80%",
+                scrub: 1.2
+            }
+        });
+    });
+
+    // --- Special Testimonial Section Sequence ---
+    if (document.querySelector('.testimonials-main')) {
+        // Large Background Text Parallax
+        gsap.to(".testimonials-bg-text", {
+            x: -150,
+            opacity: 0.1,
+            scrollTrigger: {
+                trigger: ".testimonials-main",
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 1.5
+            }
+        });
+
+        // Decorative Circles (Elastic Reveal)
+        creativeReveal(document.querySelectorAll('.testimonial-deco'), {
+            scale: 0, 
+            rotation: 120, 
+            duration: 2, 
+            stagger: 0.4, 
+            ease: "elastic.out(1, 0.4)" 
+        });
+
+        // Testimonial Cards (Staggered 3D Pop Up)
+        creativeReveal(document.querySelectorAll('.testimonial-card'), {
+            y: 100, 
+            rotationY: 40,
+            rotationX: 10,
+            scale: 0.8, 
+            duration: 2, 
+            stagger: 0.3,
+            ease: "back.out(1.2)"
+        });
+    }
+
+    // --- Creative List Stagger (Inclusive, Results, Forms & Features List) ---
+    creativeReveal(document.querySelectorAll('.inclusive-learning-grid li, .feature-list li, .school-result-footer p, .form-content ol li, .form-content p, .form-content h3'), {
+        x: 50, rotationY: -20, opacity: 0, duration: 1.5, stagger: 0.15
+    });
+
+    // --- Popup Logos (Featured On) ---
+    creativeReveal(document.querySelectorAll('.feature-imgs img'), {
+        scale: 0, rotation: 180, duration: 1.2, stagger: 0.1, ease: "elastic.out(1, 0.5)"
+    });
+
+    // --- Timeline Ribbon (3D Wave Entry) ---
+    if (document.querySelector('.timeline-main')) {
+        gsap.from(".timeline-images ul li", {
+            x: 100,
+            rotationY: 90,
+            opacity: 0,
+            stagger: 0.1,
+            duration: 1.8,
+            ease: "expo.out",
+            scrollTrigger: {
+                trigger: ".timeline-images",
+                start: "top 82%"
+            }
+        });
+    }
+
+    // --- Parallax Floating Background Elements (Optional but Out-of-the-box) ---
+    // (If there were decorative circles or shapes, we'd animate them here)
+
+    // Final Refresh
+    ScrollTrigger.refresh();
 
 });
 Fancybox.bind("[data-fancybox]");
