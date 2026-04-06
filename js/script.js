@@ -308,14 +308,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!elements || elements.length === 0) return;
 
-        const sectionsMap = new Map();
+        const groupsMap = new Map();
         elements.forEach(el => {
-            const section = el.closest('section') || el.parentElement;
-            if (!sectionsMap.has(section)) sectionsMap.set(section, []);
-            sectionsMap.get(section).push(el);
+            // Group by the parent container (e.g., .problem-grid, .special-row, .tt-container)
+            // This ensures multi-block sections animate part-by-part
+            const group = el.parentElement || document.body;
+            if (!groupsMap.has(group)) {
+                groupsMap.set(group, []);
+            }
+            groupsMap.get(group).push(el);
         });
 
-        sectionsMap.forEach((items, section) => {
+        groupsMap.forEach((items, group) => {
             gsap.from(items, {
                 y, rotationX, rotationY, scale, opacity: 0,
                 duration,
@@ -334,17 +338,17 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // --- High Impact Headers (3D Flip In) ---
-    creativeReveal(document.querySelectorAll('section:not(.hero-main):not(.meet-the-creator-main) h2, section:not(.hero-main):not(.meet-the-creator-main) h3, .section-header span, .form-header span, .problem-card-header span, .inclusive-learning-header span, .school-result-header span'), { 
-        y: 150, rotationX: -60, duration: 2.2, stagger: 0.3 
+    creativeReveal(document.querySelectorAll('section:not(.hero-main):not(.meet-the-creator-main) h2, section:not(.hero-main):not(.meet-the-creator-main) h3, .section-header span, .form-header span, .problem-card-header span, .inclusive-learning-header span, .school-result-header span, .trusted-impact-header span, .timeline-header span'), {
+        y: 150, rotationX: -60, duration: 2.2, stagger: 0.3
     });
 
-    // --- Interactive 3D Card Deal (Trusted, Problem, Results, Inclusive, Schools & Forms) ---
-    creativeReveal(document.querySelectorAll('.trusted-impact-card, .problem-card, .simple-effective-card, .school-result-card, .inclusive-cards, .main-form, .special-row'), { 
-        y: 100, rotationY: 45, rotationX: 10, scale: 0.7, duration: 2, stagger: 0.25, ease: "back.out(1.5)" 
+    // --- Interactive 3D Card Deal (Trusted, Problem, Results, Inclusive, Schools, Forms & Problem Grid) ---
+    creativeReveal(document.querySelectorAll('.trusted-impact-card, .problem-card, .simple-effective-card, .school-result-card, .inclusive-cards, .main-form, .special-row, .problem-card-grid'), {
+        y: 100, rotationY: 45, rotationX: 10, scale: 0.7, duration: 2, stagger: 0.25, ease: "back.out(1.5)"
     });
 
-    // --- High Impact Large Cards (Inclusive Main & Others) ---
-    creativeReveal(document.querySelectorAll('.inclusive-learning-main-card'), {
+    // --- High Impact Large Cards (Inclusive Main, Forms & CTA Wraps) ---
+    creativeReveal(document.querySelectorAll('.inclusive-learning-main-card, .main-form, .cta-wrap'), {
         y: 80, scale: 0.92, duration: 2, ease: "expo.out"
     });
 
@@ -354,7 +358,7 @@ document.addEventListener('DOMContentLoaded', () => {
         gsap.from(img, {
             scale: 1.2,
             y: 50,
-            opacity: 0.2,
+            opacity: 0,
             duration: 2.5,
             ease: "power2.out",
             scrollTrigger: {
@@ -367,41 +371,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Special Testimonial Section Sequence ---
     if (document.querySelector('.testimonials-main')) {
-        // Large Background Text Parallax
-        gsap.to(".testimonials-bg-text", {
-            x: -150,
-            opacity: 0.1,
-            scrollTrigger: {
-                trigger: ".testimonials-main",
-                start: "top bottom",
-                end: "bottom top",
-                scrub: 1.5
-            }
-        });
 
         // Decorative Circles (Elastic Reveal)
         creativeReveal(document.querySelectorAll('.testimonial-deco'), {
-            scale: 0, 
-            rotation: 120, 
-            duration: 2, 
-            stagger: 0.4, 
-            ease: "elastic.out(1, 0.4)" 
+            scale: 0,
+            rotation: 120,
+            duration: 2,
+            stagger: 0.4,
+            ease: "elastic.out(1, 0.4)"
         });
 
         // Testimonial Cards (Staggered 3D Pop Up)
         creativeReveal(document.querySelectorAll('.testimonial-card'), {
-            y: 100, 
+            y: 100,
             rotationY: 40,
             rotationX: 10,
-            scale: 0.8, 
-            duration: 2, 
+            scale: 0.8,
+            duration: 2,
             stagger: 0.3,
             ease: "back.out(1.2)"
         });
     }
 
-    // --- Creative List Stagger (Inclusive, Results, Forms & Features List) ---
-    creativeReveal(document.querySelectorAll('.inclusive-learning-grid li, .feature-list li, .school-result-footer p, .form-content ol li, .form-content p, .form-content h3'), {
+    // --- Creative List Stagger (Inclusive, Results, Forms, Features, School, Inclusive & Creator Headers) ---
+    creativeReveal(document.querySelectorAll('.inclusive-learning-grid li, .feature-list li, .school-result-footer p, .form-content ol li, .form-content p, .form-content h3, .school-result-header p, .inclusive-learning-content p, .meet-the-creator-header span, .meet-the-creator-header h2, .meet-the-creator-content h3, .meet-the-creator-content p, .tagline h3'), {
         x: 50, rotationY: -20, opacity: 0, duration: 1.5, stagger: 0.15
     });
 
