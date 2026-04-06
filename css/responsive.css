@@ -815,7 +815,8 @@
   }
 
   .time-line-detail h3 {
-    font-size: var(--fs-sm);
+    font-size: 20px;
+    line-height: 160%;
   }
   .timeline-images ul {
     margin-top: 20px;
@@ -1038,7 +1039,7 @@
     line-height: 90px;
   }
   .timeline-years {
-    min-height: 136px;
+    min-height: 164px;
     padding: 20px 0;
   }
   .timeline-next,
@@ -1052,9 +1053,6 @@
     background: url(../images/mobile-bg.svg);
     bottom: -20px;
     background-repeat: no-repeat;
-  }
-  .time-line-detail img {
-    width: 30px;
   }
   .timeline-images ul {
     display: flex;
@@ -1233,6 +1231,9 @@
   }
   .school-result-card::after {
     left: 40px;
+  }
+  .time-line-detail img {
+    margin-top: 30px;
   }
 }
 @media (max-width: 480px) {

@@ -302,6 +302,8 @@ main {
   background-color: var(--clr-gold-highlight);
   color: var(--clr-red-accent);
   transform: rotate(-3.933deg);
+  display: flex;
+  align-items: center;
 }
 .hero-sub-content h2:nth-child(2) {
   transform: rotate(0deg);
@@ -1184,8 +1186,9 @@ main {
 
 .main-footer hr {
   border: 0;
-  border-top: 2px solid var(--clr-gold-highlight);
+  border-top: 1px solid var(--clr-gold-highlight);
   margin: 40px 0;
+  opacity: 1;
 }
 
 .footer-bottom p {
