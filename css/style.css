@@ -425,7 +425,7 @@ main {
   font-size: var(--fs-h3);
   font-weight: 700;
   line-height: 160%;
-  max-width: 640px;
+  max-width: 860px;
   margin: 60px auto 0;
 }
 .hero-buttons {
@@ -513,7 +513,14 @@ main {
   color: var(--clr-bg-white);
   margin: 0;
 }
-
+.special-title h3 {
+  color: var(--clr-bg-white);
+  font-family: var(--ff-heading);
+  font-size: var(--fs-h4);
+  font-weight: 400;
+  line-height: 120%;
+  letter-spacing: 0.352px;
+}
 .feature-list {
   list-style: none;
   padding: 0;
@@ -677,15 +684,12 @@ main {
   line-height: 20px;
   margin-bottom: 20px;
 }
-.featured-on p {
-  color: var(--clr-navy-primary);
-  text-align: center;
-  font-family: var(--ff-body);
-  font-size: var(--fs-h3);
-  font-weight: 700;
-  line-height: 20px;
-  max-width: 200px;
-  margin: 60px auto 20px;
+.feature-imgs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
 }
 /* School Results Section */
 .school-result-main {
@@ -735,7 +739,7 @@ main {
   font-family: var(--ff-body);
   font-size: var(--fs-h3);
   font-style: normal;
-  font-weight: 400;
+  font-weight: 700;
   line-height: 160%;
   margin-top: 10px;
 }
@@ -765,14 +769,38 @@ main {
   width: 60px;
 }
 .school-result-card:nth-child(2)::after {
-  background: var(--clr-gold-highlight);
+  background: var(--clr-navy-primary);
   border-radius: 50%;
 }
 .school-result-card:nth-child(3)::after {
-  background: var(--clr-gold-highlight);
+  background: var(--clr-red-accent);
 }
 .school-result-card:nth-child(4)::after {
   background: url(../images/result-2.svg);
+}
+.school-result-card:nth-child(2) {
+  background-color: var(--clr-gold-highlight);
+}
+.school-result-card:nth-child(2) h3 {
+  color: var(--clr-red-accent);
+}
+.school-result-card:nth-child(2) p {
+  color: var(--clr-navy-primary);
+}
+.school-result-card:nth-child(2) p span {
+  color: var(--clr-red-accent);
+}
+.school-result-card:nth-child(3) {
+  background-color: var(--clr-navy-primary);
+}
+.school-result-card:nth-child(3) h3 {
+  color: var(--clr-bg-white);
+}
+.school-result-card:nth-child(3) p {
+  color: var(--clr-bg-white);
+}
+.school-result-card:nth-child(3) p span {
+  color: var(--clr-bg-white);
 }
 /* Simple & Effective Section */
 .simple-effective-main {
@@ -897,24 +925,38 @@ main {
 }
 .simple-effective-bottom-images img:first-child {
   position: absolute;
-  bottom: -150px;
-  left: 0;
+  bottom: 0px;
+  left: -20px;
   width: 170px;
   height: 220px;
 }
 .simple-effective-bottom-images img:last-child {
   position: absolute;
-  bottom: -150px;
-  right: 0;
+  bottom: 0px;
+  right: -20px;
   width: 170px;
   height: 220px;
 }
 .inclusive-learning-main {
-  padding: 150px 0 350px 0;
+  padding: 90px 0 350px 0;
   position: relative;
 }
 /* Inclusive Learning */
-.inclusive-learning-content > p {
+.inclusive-learning-content {
+  position: relative;
+}
+.inclusive-learning-content p {
+  color: var(--clr-text-slate);
+  text-align: center;
+  font-family: var(--ff-body);
+  font-size: var(--fs-body);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
+  max-width: 800px;
+  margin: 0 auto 30px;
+}
+.inclusive-learning-content p:nth-child(1) {
   color: var(--clr-text-slate);
   text-align: center;
   font-family: var(--ff-body);
@@ -922,11 +964,10 @@ main {
   font-style: normal;
   font-weight: 700;
   line-height: 160%;
-  max-width: 800px;
-  margin: 0 auto 30px;
 }
+
 .inclusive-learning-main-card {
-  background-color: var(--clr-bg-soft-blue);
+  background-color: var(--clr-navy-primary);
   max-width: 882px;
   margin: 0 auto;
   padding: 30px;
@@ -934,7 +975,7 @@ main {
   text-align: center;
 }
 .inclusive-learning-main-card h2 {
-  color: var(--clr-navy-primary);
+  color: var(--clr-gold-highlight);
   text-align: center;
   font-family: var(--ff-heading);
   font-size: var(--fs-h2);
@@ -979,20 +1020,22 @@ main {
   font-weight: 700;
   line-height: 160%;
   margin-top: 20px;
+  margin-bottom: 0;
 }
 .inclusive-learning-footer {
   margin-top: 20px;
-  background-color: var(--clr-navy-primary);
+  background-color: var(--clr-red-accent);
   padding: 20px;
   border-radius: 10px;
 }
 .inclusive-learning-footer p {
-  color: #fff;
+  color: var(--clr-bg-white) !important;
   text-align: center;
   font-family: var(--ff-body);
   font-size: var(--fs-h3);
   font-weight: 700;
   line-height: 160%;
+  margin-bottom: 0;
 }
 .inclusive-footer-content img {
   position: absolute;
@@ -1030,7 +1073,7 @@ main {
 .tagline {
   padding: 30px;
   border-radius: 30px;
-  background: var(--clr-bg-soft-blue);
+  background: var(--clr-gold-highlight);
   position: relative;
 }
 .tagline h3 {
@@ -1135,7 +1178,7 @@ main {
 
 /* Yellow dot markers for ul li as requested */
 .footer-grid li::marker {
-  color: var(--clr-gold-highlight);
+  color: var(--clr-red-accent);
   font-size: 1.2em;
 }
 
@@ -1428,7 +1471,9 @@ main {
   background-repeat: no-repeat;
   left: 0;
 }
-
+.mobileshape {
+  display: none;
+}
 /* Form Section Styles */
 .form-main {
   padding: 120px 0;
@@ -1764,12 +1809,38 @@ main {
   letter-spacing: 0.5px;
 }
 
-.timeline-images ul li .active {
-  color: var(--clr-gold-highlight);
+/* Custom active colors per year - Pattern: Red, Yellow, White */
+
+/* Red years: 2005, 2010 (1st), 2013 (2nd), 2025 */
+.timeline-images ul li:nth-child(1) .icon-wrap .active,
+.timeline-images ul li:nth-child(1) .year.active-text,
+.timeline-images ul li:nth-child(4) .icon-wrap .active,
+.timeline-images ul li:nth-child(4) .year.active-text,
+.timeline-images ul li:nth-child(7) .icon-wrap .active,
+.timeline-images ul li:nth-child(7) .year.active-text,
+.timeline-images ul li:nth-child(10) .icon-wrap .active,
+.timeline-images ul li:nth-child(10) .year.active-text {
+  color: var(--clr-red-accent) !important;
 }
 
-.timeline-images ul li .active-text {
-  color: var(--clr-gold-highlight);
+/* Yellow years: 2006, 2010 (2nd), 2023 */
+.timeline-images ul li:nth-child(2) .icon-wrap .active,
+.timeline-images ul li:nth-child(2) .year.active-text,
+.timeline-images ul li:nth-child(5) .icon-wrap .active,
+.timeline-images ul li:nth-child(5) .year.active-text,
+.timeline-images ul li:nth-child(8) .icon-wrap .active,
+.timeline-images ul li:nth-child(8) .year.active-text {
+  color: var(--clr-gold-highlight) !important;
+}
+
+/* White years: 2009, 2013 (1st), 2024 */
+.timeline-images ul li:nth-child(3) .icon-wrap .active,
+.timeline-images ul li:nth-child(3) .year.active-text,
+.timeline-images ul li:nth-child(6) .icon-wrap .active,
+.timeline-images ul li:nth-child(6) .year.active-text,
+.timeline-images ul li:nth-child(9) .icon-wrap .active,
+.timeline-images ul li:nth-child(9) .year.active-text {
+  color: var(--clr-bg-white) !important;
 }
 
 .timeline-images ul li svg {
@@ -1813,6 +1884,8 @@ main {
   font-weight: 400;
   line-height: 160%;
   letter-spacing: 0.352px;
+  max-width: 420px;
+  margin: 0 auto;
 }
 .time-line-detail {
   display: none;
@@ -1855,7 +1928,9 @@ main {
   right: 20%;
   transform: translateY(-50%);
   z-index: 10;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
 }
 .timeline-prev {
   cursor: pointer;
@@ -1871,7 +1946,9 @@ main {
   z-index: 10;
   left: 20%;
   transform: translateY(-50%);
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
 }
 .timeline-prev:focus-visible,
 .timeline-next:focus-visible {

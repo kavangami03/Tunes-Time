@@ -1,14 +1,14 @@
 <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-<mask id="mask0_369_552" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="30" height="60">
+<mask id="mask0_80_63" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="30" height="60">
 <path d="M3.8147e-06 1.57151e-06L30 0L30 60L6.95773e-06 60L3.8147e-06 1.57151e-06Z" fill="white"/>
 </mask>
-<g mask="url(#mask0_369_552)">
-<path d="M29.9746 0.0478516C13.4095 0.0478524 0.000305775 13.4717 0.000306642 30.0222C0.000307509 46.5726 13.4095 59.9965 29.9746 59.9965L29.9746 0.0478516Z" fill="#FFD700"/>
+<g mask="url(#mask0_80_63)">
+<path d="M29.9746 0.0478516C13.4095 0.0478524 0.000305879 13.4717 0.000306746 30.0222C0.000307613 46.5726 13.4095 59.9965 29.9746 59.9965L29.9746 0.0478516Z" fill="white"/>
 </g>
-<mask id="mask1_369_552" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="30" y="0" width="30" height="60">
+<mask id="mask1_80_63" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="30" y="0" width="30" height="60">
 <path d="M30 1.57151e-06L60 0L60 60L30 60L30 1.57151e-06Z" fill="white"/>
 </mask>
-<g mask="url(#mask1_369_552)">
-<path d="M59.9746 0.0478516C43.4095 0.0478524 30.0003 13.4717 30.0003 30.0222C30.0003 46.5726 43.4095 59.9965 59.9746 59.9965L59.9746 0.0478516Z" fill="#FFD700"/>
+<g mask="url(#mask1_80_63)">
+<path d="M59.9746 0.0478516C43.4095 0.0478524 30.0003 13.4717 30.0003 30.0222C30.0003 46.5726 43.4095 59.9965 59.9746 59.9965L59.9746 0.0478516Z" fill="white"/>
 </g>
 </svg>

@@ -1,6 +1,7 @@
 /* Script JS */
 document.addEventListener('DOMContentLoaded', () => {
 
+
     // --- Lenis Smooth Scroll Initialization ---
     const lenis = new Lenis({
         duration: 1.2,
@@ -247,3 +248,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+Fancybox.bind("[data-fancybox]");
