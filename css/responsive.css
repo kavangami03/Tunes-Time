@@ -1018,22 +1018,17 @@
     gap: 40px;
   }
   .school-result-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
   .school-result-card {
-    height: 150px;
-    width: 150px;
+    height: 300px;
+    width: 300px;
   }
   .school-result-card h3 {
-    font-size: 22px;
-    line-height: 1.2;
+    font-size: 38px;
   }
   .school-result-card p {
-    font-size: 14px;
-  }
-  .school-result-card::after {
-    width: 40px;
-    height: 40px;
+    font-size: 20px;
   }
   .time-line-detail {
     max-width: 60%;
@@ -1236,6 +1231,9 @@
     height: 150px;
     width: 150px;
   }
+  .school-result-card::after {
+    left: 40px;
+  }
 }
 @media (max-width: 480px) {
   .hero-sub-content h2:nth-child(1),
@@ -1248,8 +1246,9 @@
   .hero-sub-content h2:nth-child(3)::after {
     width: 18px;
   }
-  .hero-sub-content h2:nth-child(1)::before {
-    bottom: -20%;
+  .school-result-card::after {
+    top: 10px;
+    left: 0px;
   }
 }
 /* =============================================================
@@ -1282,12 +1281,11 @@
   /* School Results */
   .school-result-grid {
     grid-template-columns: 1fr;
-    max-width: 200px;
     margin: 0 auto;
   }
   .school-result-card {
-    width: 200px;
-    height: 200px;
+    width: 260px;
+    height: 260px;
     margin: 0 auto;
   }
 
@@ -1336,5 +1334,14 @@
   .problem-box-yellow svg {
     width: 126px;
     height: 126px;
+  }
+  .hero-sub-content h2:nth-child(1)::before {
+    bottom: -38%;
+  }
+  .hero-sub-content h2:nth-child(1)::after {
+    left: -8%;
+  }
+  .hero-sub-content h2:nth-child(3)::after {
+    left: -18%;
   }
 }
