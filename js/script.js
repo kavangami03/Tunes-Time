@@ -387,20 +387,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Special Testimonial Section Sequence ---
     if (document.querySelector('.testimonials-main')) {
-        // Large Background Text Parallax (Disabled on mobile for performance)
-        if (!isMobile) {
-            gsap.to(".testimonials-bg-text", {
-                x: -150,
-                opacity: 0.1,
-                scrollTrigger: {
-                    trigger: ".testimonials-main",
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: 1.5
-                }
-            });
-        }
-
         // Decorative Circles (Elastic Reveal)
         creativeReveal(document.querySelectorAll('.testimonial-deco'), {
             scale: 0,
